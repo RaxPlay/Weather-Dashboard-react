@@ -1,10 +1,9 @@
-import { use, useEffect, useState } from 'react';
+import { useState } from 'react';
 import './styles/index.css'
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 export const WeatherDashboard = () => {
-  
   const [cityName, setCityName] = useState('');
   const [countryName, setCountryName] = useState('');
   let [units, setUnits] = useState('imperial');
@@ -14,6 +13,7 @@ export const WeatherDashboard = () => {
   let [feelsLikeTemp, setFeelsLikeTemp] = useState('');
   let [humidity, sethumidity] = useState('');
   let [windSpeed, setWindSpeed] = useState('');
+  let [weatherState, setWeatherState] = useState('');
   //5-day Forecast Data variables.
   let [day1Temp, setDay1Temp] = useState('')
   let [day2Temp, setDay2Temp] = useState('')
@@ -25,8 +25,6 @@ export const WeatherDashboard = () => {
   let [day3WeatherState, setDay3WeatherState] = useState('');
   let [day4WeatherState, setDay4WeatherState] = useState('');
   let [day5WeatherState, setDay5WeatherState] = useState('');
-  //Finish this up
-  const [weatherState, setWeatherState] = useState();
 
   const onInputChange = (event) => {
     event.preventDefault();
@@ -81,7 +79,7 @@ export const WeatherDashboard = () => {
     console.log(currentData);
     console.log(forecastData);
   };
-
+  
   const changeToMetric = () => {
     if (units == 'metric'){
       return
